@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button{
+            margin-top: 20px;
+            padding : 5px;
+            color:green;
+            border-radius: 2em;
+            font-size: large;
+            margin-left: 180px;
+            /* font-style: italic; */
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .tryit{
+            margin-left: 190px;
+        }
+        #win{
+            background-color: green;
+            width:400px;
+            font-size: larger;
+            font-style: normal;
+            
+        }
+
+        #loose{
+            background-color: red;
+            width:400px;
+            font-size: larger;
+            font-style: normal;
+        }
+        .main{
+            margin-left: 400px;
+            margin-top:50px;
+        
+        }
+        #input{
+            border-radius: 3em;
+            width:250px;
+            height:20px;
+            border-color: red;
+        }
+    </style>
+    <!-- <script src="random.js"></script> -->
+</head>
+<body>
+
+    <div class="main">
+   <div> 
+   enter your choice <input type="text" id ="input">
+
+   
+
+</div>
+    <button name  = "submit" onclick="input_value()">submit</button>
+    
+    <p id = "para"></p>
+    <p id = "result"></p>
+    <p id= "win"></p>
+    <p id = "loose"></p>
+
+    
+
+    <button name = "tryit" class = "tryit" onclick="tryed()">tryit</button>
+    <script>
+ 
+ let rand;
+ function rando(){
+
+
+rand = Math.floor(Math.random() * 100);
+
+console.log(rand);
+}
+let count = 0;
+rando();
+        function input_value(){
+
+            
+         
+            
+        let input;
+
+        input  =  document.getElementById("input").value;
+
+        document.getElementById("para").innerHTML = "your choice is " + input;
+
+        count+=1;
+
+          
+        if(input == rand){
+             document.getElementById("result").innerHTML = "";
+             document.getElementById("input").disabled = true;
+             document.getElementById("win").innerHTML = "you win the game!!!";
+
+            }
+        else if(count == 3){
+                
+            
+         if(input == rand){
+            //  document.getElementById("result").innerHTML = "you win your guess is correct";
+             document.getElementById("input").disabled = true;
+             document.getElementById("win").innerHTML = "you win the game!!!";
+             document.getElementById("result").innerHTML = "";
+            }
+            else{
+                document.getElementById("loose").innerHTML = "you loss!!! your chances completed";
+
+                document.getElementById("input").disabled = true;
+            }
+
+         }
+         else if(input > rand){
+            document.getElementById("result").innerHTML ="your guess is big";
+            document.getElementById("input").value = "";
+         }
+         else if(input < rand){
+            document.getElementById("result").innerHTML ="your guess is small";
+            document.getElementById("input").value = "";
+         }
+
+         
+        }
+
+        function tryed() {
+
+            count = 0;
+
+            document.getElementById("input").value = "";
+
+            document.getElementById("result").innerHTML = "";
+
+            document.getElementById("loose").innerHTML = "";
+
+            document.getElementById("win").innerHTML = "";
+
+            document.getElementById("para").innerHTML = "";
+
+            document.getElementById("input").disabled = false;
+
+         
+
+            rando();
+
+                       
+
+        }
+
+
+
+        // print random number
+
+    </script>
+
+</div>
+</body>
+</html>
