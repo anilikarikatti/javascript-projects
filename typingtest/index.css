@@ -1,0 +1,12 @@
+#container{
+    width: 800px;
+    height: 300px;
+    border: 2px solid black;
+    margin-left: 200px;
+    
+}
+
+#ansbox{
+    margin-left: 450px;
+    margin-top: 50px;
+}
